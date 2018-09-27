@@ -15,7 +15,7 @@
     @endif
 
     <div class="p-3 mb-2 text-white" style="background-color:#33001a">
-        <h3>Add New Movies</h3>
+        <h3>Adicionar Novo Filme</h3>
     </div>
 
     </br>
@@ -23,37 +23,37 @@
     <form method="post" action="{{route('movies.store')}}">
         @csrf
         <div class="container" style="color:white;">
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHpA7dt5lZRwVPK_ae7PI_9zvD8fZGt32Yo8ziKoDbZSJi6DXJ'
+            <img src='http://www.ma10.com.br/wp-content/uploads/2017/03/20160917_cinema.jpg'
                  style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
 
-            <div class="form-group"> Add Picture link
-                <input type="url" name="picture" class="form-control" value="" placeholder="Picture link">
+            <div class="form-group"> Link da capa do filme
+                <input type="url" name="picture" class="form-control" value="{{old('picture')}}" placeholder="link da capa do filme">
             </div>
 
             <div class="form-group {{ $errors->has('title') ? 'is-invalid' : '' }}">
-                Text Movie name
-                <input type="text" name="title" class="form-control" value="" placeholder="Movie title">
+                Titulo do filme
+                <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="Titulo do filme">
             </div>
             </br>
             <div>
-                Release Date
-                <input type="date" name="releaseDate" class="form-control" value="" placeholder="Relese Date">
+                Data de lançamento
+                <input type="text" name="releaseDate" class="form-control date" value="{{old('date')}}" placeholder="data de lançamento">
             </div>
             </br>
             <div>
-                RunTime
-                <input type="time" name="runtime" class="form-control" value="" placeholder="Runtime">
+                Duração
+                <input type="time" name="runtime" class="form-control" value="{{old('runtime')}}" placeholder="Runtime">
             </div>
             </br>
             <div>
-                Description
+                Descrição
                 <textarea rows="10" cols="50" class="form-control" name="description"
-                          placeholder="Description"></textarea>
+                          placeholder="Descrição"></textarea>
             </div>
             </br>
             <!-- Director  -->
             <div>
-                Choose Directors
+                Escolha um diretor
                 <select name="director">
                     @foreach($directors as $director)
                         <option value="{{ $director->id }}">{{ $director->name }}</option>
@@ -64,7 +64,7 @@
             </br>
 
             <div>
-                <input type="submit" class="btn-danger" value="Update">
+                <input type="submit" class="btn-danger" value="Criar">
             </div>
             </br>
             </br>
