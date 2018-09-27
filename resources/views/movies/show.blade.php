@@ -41,8 +41,6 @@
                             <strong>Diretor:</strong>{{$movie->director->name}}
                         </li>
                     </ul>
-                    @if(!Auth::guest())
-                    @endif
 
                 </div>
                 </br>

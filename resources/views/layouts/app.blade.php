@@ -54,6 +54,7 @@
                         <li class="nav-item" ><a class="nav-link"  href="{{ url('/movies') }}">Filmes</a></li>
                         <li class="nav-item" ><a class="nav-link"  href="{{ url('/directors') }}">Diretores</a></li>
                         <li class="nav-item" ><a class="nav-link"  href="{{ url('/address') }}">Endereços</a></li>
+                        <li class="nav-item" ><a class="nav-link"  href="{{ url('/user') }}">Usuários</a></li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

@@ -2,21 +2,19 @@
 @section('content')
 
     <div class="p-3 mb-2">
-        <h1> Editar Endereço: {{$address->address}} aqui</h1> </br>
+        <h1> Editar Endereço: {{$address->address}} - {{$address->number}}</h1> </br>
     </div>
 
     <form method="POST" action="{{route('address.update', ['address' => $address->id])}}">
-
+        <input type="hidden" name="_method" value="PUT"/>
         @csrf
         <div class="container">
-            @csrf
-
             @if(session()->has('status'))
                 {{ session('status') }}
             @endif
             <div class="form-group">
                 <label for="zip-code">CEP</label>
-                <input class="form-control" name="zip-code" type="text" id="zip-code" value="{{$address->zip-code}}" maxlength="9"
+                <input class="form-control" name="zip-code" type="text" id="zip-code" value="{{$address->zip_code}}" maxlength="9"
                        onblur="pesquisacep(this.value);" >
             </div>
             <div class="form-group">

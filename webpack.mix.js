@@ -14,8 +14,6 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
-// mix.sass('resources/assets/sass/app.scss', 'public/css/app.css').version();
-
 mix.scripts([
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/jquery-mask-plugin/dist/jquery.mask.min.js',
@@ -23,6 +21,6 @@ mix.scripts([
 ], 'public/js/app.js');
 
 mix.scripts([
-    'resources/js/cep.js',
-], 'public/js/address.js');
+    'resources/js/mask.js',
+], 'public/js/register.js');
 

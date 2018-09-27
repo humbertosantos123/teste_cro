@@ -111,7 +111,7 @@ $router->group( [
 
         $router->post( 'register', [
             'as'   => 'register',
-            'uses' => 'AddressController@registerAddress',
+            'uses' => 'AddressController@register',
         ] );
 
         $router->get( '{address}/edit', [
@@ -127,6 +127,36 @@ $router->group( [
         $router->put( '{address}', [
             'as'   => 'update',
             'uses' => 'AddressController@update',
+        ] );
+
+    }
+);
+
+$router->group( [
+    'prefix'     => 'user',
+    'as'         => 'user.',
+    'middleware' => [ 'web' ]
+],
+    function ( \Illuminate\Routing\Router $router ) {
+
+        $router->get( '/', [
+            'as'   => 'index',
+            'uses' => 'UserController@index',
+        ] );
+
+        $router->get( '{user}/edit', [
+            'as'   => 'edit',
+            'uses' => 'UserController@edit',
+        ] );
+
+        $router->get( '{user}', [
+            'as'   => 'show',
+            'uses' => 'UserController@show',
+        ] );
+
+        $router->put( '{user}', [
+            'as'   => 'update',
+            'uses' => 'UserController@update',
         ] );
 
     }

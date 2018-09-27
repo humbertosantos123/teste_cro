@@ -23,45 +23,61 @@ class AddressController extends Controller
         return view('address/show', ['address' => $address]);
     }
 
+    public function edit(Address $address)
+    {
+        return view('address/edit', ['address' => $address]);
+    }
+
     public function update(Request $request, Address $address)
     {
+        $this->validate($request, [
+            'zip-code' => 'required|string|max:9',
+            'address' => 'required|string|min:1',
+            'number' => 'required|int|min:1',
+            'neighborhood' => 'required|string|min:1',
+            'city' => 'required|string|min:1',
+            'state' => 'required|string|max:2',
+        ]);
 
-        //Save database data
-//        $director_name = $request->input('name');
-//
-//        //create new director method
-//        $director->name = $director_name;
-//        $director->updated_at = now();
-//        $director->save();
-//
-//        //return redirect()->route('directors.index');
-//        //redirect to the actor list
-//        return redirect()->route('directors.show', ['director' => $director->id]);
+        $fields = $request->all();
+
+        $address->zip_code = $fields['zip-code'];
+        $address->address = $fields['address'];
+        $address->number = $fields['number'];
+        $address->complement = $fields['complement'];
+        $address->neighborhood = $fields['neighborhood'];
+        $address->city = $fields['city'];
+        $address->state = $fields['state'];
+        $address->updated_at = now();
+
+        $address->save();
+
+        return redirect()->route('address.show', ['address' => $address->id]);
     }
 
     public function registerAddress(Request $request)
     {
         $this->validate($request, [
-            'zip-code'     =>   'required|string|max:9',
-            'address'      =>   'required|string|min:1',
-            'number'       =>   'required|int|min:1',
-            'neighborhood' =>   'required|string|min:1',
-            'city'         =>   'required|string|min:1',
-            'state'        =>   'required|string|max:2',
+            'zip-code' => 'required|string|max:9',
+            'address' => 'required|string|min:1',
+            'number' => 'required|int|min:1',
+            'neighborhood' => 'required|string|min:1',
+            'city' => 'required|string|min:1',
+            'state' => 'required|string|max:2',
         ]);
 
         $user = $request->user();
         $fields = $request->all();
 
-        $address               = new Address();
-        $address->user_id      = $user->id;
-        $address->zip_code     = $fields['zip-code'];
-        $address->address      = $fields['address'];
-        $address->number       = $fields['number'];
-        $address->complement   = $fields['complement'];
+        $address = new Address();
+        $address->user_id = $user->id;
+        $address->zip_code = $fields['zip-code'];
+        $address->address = $fields['address'];
+        $address->number = $fields['number'];
+        $address->complement = $fields['complement'];
         $address->neighborhood = $fields['neighborhood'];
-        $address->city         = $fields['city'];
-        $address->state        = $fields['state'];
+        $address->city = $fields['city'];
+        $address->state = $fields['state'];
 
         $address->save();
 

@@ -4,7 +4,7 @@
     <div class="p-3 mb-2 bg-dark text-white">
         <div class="card-header">
             <div class="col-8">
-                <h5><strong>{{$address->address}}</strong></h5>
+                <h5><strong>{{$address->address}} - {{$address->number}}</strong></h5>
             </div>
         </div>
         @if(!Auth::guest())
@@ -32,6 +32,9 @@
             <p class="text-muted">({{$address->state}}) </p>
             <a href="{{route('address.show', ['movie'=>$address->id])}}" class="btn btn-success">
                 Visualizar
+            </a>
+            <a href="{{route('address.show', ['movie'=>$address->id])}}" class="btn btn-danger">
+                Deletar
             </a>
         </div>
     </div>

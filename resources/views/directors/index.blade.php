@@ -19,8 +19,13 @@
                 <li class="list-group-item">
                     {{ $director->name}}
                     </br>
-
-                    <a href="{{ route('directors.show', ['director' => $director]) }}" class="btn btn-success ribbon">Visualizar</a></br>
+                    <div class="col-12 m-2">
+                        <a href="{{ route('directors.show', ['director' => $director]) }}"
+                           class="btn btn-success ribbon">Visualizar</a></br>
+                        <a href="{{route('directors.show', ['director' => $director])}}" class="btn btn-danger float-right">
+                            Deletar
+                        </a>
+                    </div>
                 </li>
 
             @endforeach

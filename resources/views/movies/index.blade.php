@@ -31,6 +31,10 @@
                                 Visualizar
                             </a>
 
+                            <a href="{{route('movies.show', ['movie'=>$movie->id])}}" class="btn btn-danger">
+                                Deletar
+                            </a>
+
                         </div>
                     </div>
 
