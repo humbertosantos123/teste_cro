@@ -37,10 +37,6 @@ class DirectorController extends Controller
      */
     public function store(Request $request)
     {
-
-      //Save database data
-      $director_name = $request->input('name');
-
       //create new director method
       $director = new Director();
       $director->name= $request->input('name');
@@ -86,10 +82,10 @@ class DirectorController extends Controller
 
       //Save database data
       $director_name = $request->input('name');
-      $director_info = $request->input('director');
 
       //create new director method
       $director->name = $director_name;
+      $director->updated_at = now();
       $director->save();
 
       //return redirect()->route('directors.index');

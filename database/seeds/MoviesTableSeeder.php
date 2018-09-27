@@ -23,7 +23,8 @@ class MoviesTableSeeder extends Seeder
                     'runtime' => '01:00:00',
                     'releaseDate' => '1992-01-01',
                     'director_id' => '1',
-                    'user_id' => '1'
+                    'user_id' => '1',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             1 =>
                 array(
@@ -34,7 +35,8 @@ class MoviesTableSeeder extends Seeder
                     'runtime' => '01:22:00',
                     'releaseDate' => '1992-01-02',
                     'director_id' => '2',
-                    'user_id' => '2'
+                    'user_id' => '2',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             2 =>
                 array(
@@ -45,7 +47,8 @@ class MoviesTableSeeder extends Seeder
                     'runtime' => '01:33:00',
                     'releaseDate' => '1992-01-03',
                     'director_id' => '3',
-                    'user_id' => '1'
+                    'user_id' => '1',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             3 =>
                 array(
@@ -56,7 +59,8 @@ class MoviesTableSeeder extends Seeder
                     'runtime' => '01:14:00',
                     'releaseDate' => '1992-05-01',
                     'director_id' => '3',
-                    'user_id' => '2'
+                    'user_id' => '2',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             4 =>
                 array(
@@ -67,7 +71,8 @@ class MoviesTableSeeder extends Seeder
                     'runtime' => '01:01:00',
                     'releaseDate' => '1992-03-01',
                     'director_id' => '1',
-                    'user_id' => '3'
+                    'user_id' => '3',
+                    'created_at' => \Carbon\Carbon::now(),
                 )
         ));
     }

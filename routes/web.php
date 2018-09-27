@@ -97,7 +97,40 @@ $router->group( [
     }
 );
 
+$router->group( [
+    'prefix'     => 'address',
+    'as'         => 'address.',
+    'middleware' => [ 'web' ]
+],
+    function ( \Illuminate\Routing\Router $router ) {
 
+        $router->get( '/', [
+            'as'   => 'index',
+            'uses' => 'AddressController@index',
+        ] );
+
+        $router->post( 'register', [
+            'as'   => 'register',
+            'uses' => 'AddressController@registerAddress',
+        ] );
+
+        $router->get( '{address}/edit', [
+            'as'   => 'edit',
+            'uses' => 'AddressController@edit',
+        ] );
+
+        $router->get( '{address}', [
+            'as'   => 'show',
+            'uses' => 'AddressController@show',
+        ] );
+
+        $router->put( '{address}', [
+            'as'   => 'update',
+            'uses' => 'AddressController@update',
+        ] );
+
+    }
+);
 //Movie Routes
 //Route::get('/movies', 'MovieController@index')->name('movies.index');
 //Route::get('/movies/create', 'MovieController@create')->name('movies.create');

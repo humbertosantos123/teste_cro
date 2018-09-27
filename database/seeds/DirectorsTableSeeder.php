@@ -17,27 +17,32 @@ class DirectorsTableSeeder extends Seeder
             0 =>
                 array(
                     'id' => '1',
-                    'name' => 'QUENTIN TARANTINO'
+                    'name' => 'QUENTIN TARANTINO',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             1 =>
                 array(
                     'id' => '2',
-                    'name' => 'CHRISTOPHER NOLAN'
+                    'name' => 'CHRISTOPHER NOLAN',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             2 =>
                 array(
                     'id' => '3',
-                    'name' => 'MARTIN SCORSESE'
+                    'name' => 'MARTIN SCORSESE',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             3 =>
                 array(
                     'id' => '4',
-                    'name' => 'STEVEN SPIELBERG'
+                    'name' => 'STEVEN SPIELBERG',
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             4 =>
                 array(
                     'id' => '5',
-                    'name' => 'PAUL THOMAS ANDERSON'
+                    'name' => 'PAUL THOMAS ANDERSON',
+                    'created_at' => \Carbon\Carbon::now(),
                 )
         ));
     }

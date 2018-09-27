@@ -22,3 +22,7 @@ mix.scripts([
     'bower_components/bootstrap/dist/js/bootstrap.min.js'
 ], 'public/js/app.js');
 
+mix.scripts([
+    'resources/js/cep.js',
+], 'public/js/address.js');
+

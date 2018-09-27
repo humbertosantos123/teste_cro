@@ -19,7 +19,7 @@
 
         @endif
     </div>
-    
+
     <div class="container">
         <div class="card">
             <div class="col-3">
@@ -35,7 +35,7 @@
                         <li class="list-group-item">
                             <strong>Descrição: </strong>{{$movie->description}}</li>
                         <li class="list-group-item">
-                            <strong>Duração: </strong>{{$movie->runtime}} minutos
+                            <strong>Duração: </strong>{{$movie->runtime}}
                         </li>
                         <li class="list-group-item">
                             <strong>Diretor:</strong>{{$movie->director->name}}

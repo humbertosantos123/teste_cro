@@ -13,8 +13,8 @@ class MovieController extends Controller
     public function index()
     {
 
-      $movie = Movie::where('user_id', \Auth::user() ? \Auth::user()->id : 0)->get();
-      return view('movies/index', ['movies'=>$movie]);
+      $movies = Movie::where('user_id', \Auth::user() ? \Auth::user()->id : 0)->get();
+      return view('movies/index', ['movies'=>$movies]);
     }
     /**
      * Show the form for creating a new resource.
@@ -119,6 +119,7 @@ class MovieController extends Controller
       $movie->runtime = $movie_runtime;
       $movie->releaseDate = $movie_releaseDate;
       $movie->director_id = $movie_director_id;
+      $movie->updated_at = now();
 
       $movie->save();
       return redirect()->route('movies.show', ['movie' => $movie->id]);

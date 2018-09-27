@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
                     'password' => \Illuminate\Support\Facades\Hash::make('123456'),
                     'document' => '000.000.000-00',
                     'birthday' => date( 'Y-m-d', strtotime( '18-09-1991' ) ),
-                    'last_access' => \Carbon\Carbon::now()
+                    'last_access' => \Carbon\Carbon::now(),
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             1 =>
                 array(
@@ -32,7 +33,8 @@ class UsersTableSeeder extends Seeder
                     'password' => \Illuminate\Support\Facades\Hash::make('123456'),
                     'document' => '000.000.000-01',
                     'birthday' => date( 'Y-m-d', strtotime( '19-09-1991' ) ),
-                    'last_access' => \Carbon\Carbon::now()
+                    'last_access' => \Carbon\Carbon::now(),
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             2 =>
                 array(
@@ -42,7 +44,8 @@ class UsersTableSeeder extends Seeder
                     'password' => \Illuminate\Support\Facades\Hash::make('123456'),
                     'document' => '000.000.000-33',
                     'birthday' => date( 'Y-m-d', strtotime( '22-09-1991' ) ),
-                    'last_access' => \Carbon\Carbon::now()
+                    'last_access' => \Carbon\Carbon::now(),
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             3 =>
                 array(
@@ -52,7 +55,8 @@ class UsersTableSeeder extends Seeder
                     'password' => \Illuminate\Support\Facades\Hash::make('123456'),
                     'document' => '000.000.333-22',
                     'birthday' => date( 'Y-m-d', strtotime( '23-09-1992' ) ),
-                    'last_access' => \Carbon\Carbon::now()
+                    'last_access' => \Carbon\Carbon::now(),
+                    'created_at' => \Carbon\Carbon::now(),
                 ),
             4 =>
                 array(
@@ -62,7 +66,8 @@ class UsersTableSeeder extends Seeder
                     'password' => \Illuminate\Support\Facades\Hash::make('123456'),
                     'document' => '111.000.000-00',
                     'birthday' => date( 'Y-m-d', strtotime( '29-09-1991' ) ),
-                    'last_access' => \Carbon\Carbon::now()
+                    'last_access' => \Carbon\Carbon::now(),
+                    'created_at' => \Carbon\Carbon::now(),
                 )
         ));
     }
