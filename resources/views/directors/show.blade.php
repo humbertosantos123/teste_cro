@@ -37,6 +37,9 @@
                 @foreach($director->movies as $movie)
                     <li class="list-group-item">
                         Titulo:<p>{{$movie->title}}</p>
+                        <a href="{{route('movies.show', ['movie'=>$movie->id])}}" class="btn btn-success">
+                            Visualizar
+                        </a>
                     </li>
                 @endforeach
             </ul>

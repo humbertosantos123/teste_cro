@@ -21,7 +21,9 @@
                         <div class="card-header">
                             <h5><strong>{{$movie->title}}</strong></h5>
                             <p>({{$movie->releaseDate}})</p>
-                            <p>{{$movie->runtime}}</p>
+                            @for($i = 1; $i <= 5; $i++)
+                                <i class="{{ $i <=  $movie->rating ? 'fas fa-star' : 'far fa-star'}} no-border"></i>
+                            @endfor
                         </div>
                         <div class="card-body">
                             <img class="img-fluid" alt="Responsive image" width="200" height="250"

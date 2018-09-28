@@ -13,6 +13,8 @@ class Movie extends Model
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    const arrayRating = [1,2,3,4,5];
+
     protected $casts = [
         'id' => 'integer'
     ];

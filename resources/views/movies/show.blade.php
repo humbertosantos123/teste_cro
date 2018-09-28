@@ -34,7 +34,10 @@
                         <li class="list-group-item">
                             <strong>Descrição: </strong>{{$movie->description}}</li>
                         <li class="list-group-item">
-                            <strong>Duração: </strong>{{$movie->runtime}}
+                            <strong>Nota: </strong>
+                            @for($i = 1; $i <= 5; $i++)
+                                <i class="{{ $i <=  $movie->rating ? 'fas fa-star' : 'far fa-star'}} no-border"></i>
+                            @endfor
                         </li>
                         <li class="list-group-item">
                             <strong>Diretor:</strong>{{$movie->director->name}}

@@ -17,8 +17,6 @@
         <h3>Adicionar Novo Filme</h3>
     </div>
 
-    </br>
-
     <form method="post" action="{{route('movies.register')}}">
         @csrf
         <div class="container" style="color:white;">
@@ -43,14 +41,19 @@
             </div>
             </br>
             <div>
-                Duração
-                <input type="time" name="runtime" class="form-control" value="{{old('runtime')}}" placeholder="Runtime">
+                Nota
+                <select name="rating">
+                    @foreach($arrayRating as $rating)
+                        <option value="{{ $rating }}">{{$rating}}</option>
+                    @endforeach
+                </select>
+
             </div>
             </br>
             <div>
                 Descrição
                 <textarea rows="10" cols="50" class="form-control" name="description"
-                          placeholder="Descrição"></textarea>
+                          placeholder="Descrição">{{old('description')}}</textarea>
             </div>
             </br>
             <div>
@@ -71,3 +74,11 @@
         </div>
     </form>
 @endsection
+
+@push('body-scripts')
+    <script>
+        +(function ( window, $ ) {
+            $( '.date' ).mask( '00/00/0000' );
+        }( window, jQuery ));
+    </script>
+@endpush

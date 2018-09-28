@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             @foreach($users as $user)
-                <div class="col-md-3">
+                <div class="col-md-3 mt-3">
                     <div class="card text-center">
                         <div class="card-header">
                             <h5><strong>{{$user->name}}</strong></h5>

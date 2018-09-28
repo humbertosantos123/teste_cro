@@ -28,12 +28,13 @@
                 <input type="date" name="releaseDate" class="form-control" value="{{$movie->releaseDate}}">
             </div>
 
-            <div>
-                Duração:</br>
-                <input type="time" name="runtime" class="form-control" value="{{$movie->runtime}}"
-                       placeholder="runtime">
+            <div class="mt-2">
+                <select name="rating">
+                    @foreach($arrayRating as $rating)
+                        <option value="{{$rating}}">{{$rating}}</option>
+                    @endforeach
+                </select>
             </div>
-
             <div>
                 Descrição:</br>
                 <textarea rows="10" cols="50" class="form-control" name="description"
@@ -59,3 +60,12 @@
     </form>
 
 @endsection
+
+
+@push('body-scripts')
+    <script>
+        +(function ( window, $ ) {
+            $( '.date' ).mask( '00/00/0000' );
+        }( window, jQuery ));
+    </script>
+@endpush

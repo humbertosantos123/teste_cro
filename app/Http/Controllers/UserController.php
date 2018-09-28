@@ -28,7 +28,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'document' => 'required|string',
-            'birthday' => 'required'
+            'birthday' => 'required|date_format:d/m/Y'
         ]);
 
         $fields = $request->all();
