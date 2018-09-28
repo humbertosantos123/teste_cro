@@ -31,9 +31,11 @@
                                 Visualizar
                             </a>
 
-                            <a href="{{route('movies.show', ['movie'=>$movie->id])}}" class="btn btn-danger">
-                                Deletar
-                            </a>
+                            <form action="{{ route('movies.delete', ['movie' =>$movie->id]) }}" method="post">
+                                <input type="hidden" name="_method" value="PUT"/>
+                                @csrf
+                                <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+                            </form>
 
                         </div>
                     </div>

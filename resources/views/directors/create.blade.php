@@ -8,7 +8,7 @@
     </div>
 
     <div class="container">
-        <form method="POST" action="{{ route('directors.store') }}">
+        <form method="POST" action="{{ route('directors.register') }}">
             @csrf
 
             <div class="form-group">

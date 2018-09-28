@@ -1,7 +1,6 @@
 @extends('layouts/app')
 @section('content')
 
-
     @if($errors->count())
         <div class="row">
             <div class="col-xs-12">
@@ -20,24 +19,27 @@
 
     </br>
 
-    <form method="post" action="{{route('movies.store')}}">
+    <form method="post" action="{{route('movies.register')}}">
         @csrf
         <div class="container" style="color:white;">
             <img src='http://www.ma10.com.br/wp-content/uploads/2017/03/20160917_cinema.jpg'
                  style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
 
             <div class="form-group"> Link da capa do filme
-                <input type="url" name="picture" class="form-control" value="{{old('picture')}}" placeholder="link da capa do filme">
+                <input type="url" name="picture" class="form-control" value="{{old('picture')}}"
+                       placeholder="link da capa do filme">
             </div>
 
             <div class="form-group {{ $errors->has('title') ? 'is-invalid' : '' }}">
                 Titulo do filme
-                <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="Titulo do filme">
+                <input type="text" name="title" class="form-control" value="{{old('title')}}"
+                       placeholder="Titulo do filme">
             </div>
             </br>
             <div>
                 Data de lançamento
-                <input type="text" name="releaseDate" class="form-control date" value="{{old('date')}}" placeholder="data de lançamento">
+                <input type="text" name="releaseDate" class="form-control date" value="{{old('date')}}"
+                       placeholder="data de lançamento">
             </div>
             </br>
             <div>
@@ -51,7 +53,6 @@
                           placeholder="Descrição"></textarea>
             </div>
             </br>
-            <!-- Director  -->
             <div>
                 Escolha um diretor
                 <select name="director">
@@ -66,7 +67,6 @@
             <div>
                 <input type="submit" class="btn-danger" value="Criar">
             </div>
-            </br>
             </br>
         </div>
     </form>

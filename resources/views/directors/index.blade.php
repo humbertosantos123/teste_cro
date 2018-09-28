@@ -19,14 +19,17 @@
                 <li class="list-group-item">
                     {{ $director->name}}
                     </br>
-                    <div class="col-12 m-2">
-                        <a href="{{ route('directors.show', ['director' => $director]) }}"
-                           class="btn btn-success ribbon">Visualizar</a></br>
-                        <a href="{{route('directors.show', ['director' => $director])}}" class="btn btn-danger float-right">
-                            Deletar
-                        </a>
-                    </div>
+
+                    <a href="{{ route('directors.show', ['director' => $director]) }}"
+                       class="btn btn-success ribbon">Visualizar</a>
+
+                    <form action="{{ route('directors.delete', ['director' =>$director->id]) }}" method="post">
+                        <input type="hidden" name="_method" value="PUT"/>
+                        @csrf
+                        <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+                    </form>
                 </li>
+
 
             @endforeach
         </ul>

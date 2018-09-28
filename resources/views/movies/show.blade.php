@@ -16,7 +16,6 @@
                     <a style="color:white;" href="{{route('movies.index')}} ">Lista de filmes</a>
                 </button>
             </div>
-
         @endif
     </div>
 

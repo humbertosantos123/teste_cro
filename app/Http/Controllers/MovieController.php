@@ -5,22 +5,14 @@ use App\Movie;
 use Illuminate\Http\Request;
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 
       $movies = Movie::where('user_id', \Auth::user() ? \Auth::user()->id : 0)->get();
       return view('movies/index', ['movies'=>$movies]);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
       $movie = Movie::orderBy('title')->get();
@@ -31,15 +23,9 @@ class MovieController extends Controller
         'directors' => $directors
       ]);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
 
+    public function register(Request $request)
+    {
         $this->validate( $request, [
             'title'        => 'required|min:3',
             'picture' => 'required|min:3',
@@ -58,7 +44,6 @@ class MovieController extends Controller
       $movie_director_id = $request->input('director');
       $movie_description = $request->input('description');
 
-     //create new movie method
       $movie = new Movie;
       $movie->picture = $movie_picture;
       $movie->title = $movie_title;
@@ -72,23 +57,13 @@ class MovieController extends Controller
 
       return redirect()->route('movies.index');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Movie $movie)
     {
       $movie->load('director')->get();
       return view('movies.show', ['movie' => $movie]);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Movie $movie)
     {
       return view('movies.edit', [
@@ -96,13 +71,7 @@ class MovieController extends Controller
         'directors' =>Director::orderBy('name')->get()
     ]);
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Movie $movie)
     {
 
@@ -126,14 +95,11 @@ class MovieController extends Controller
 
 
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Movie $movie)
+
+    public function delete(Movie $movie)
     {
-        //
+        $movie->delete();
+
+        return $this->index();
     }
 }

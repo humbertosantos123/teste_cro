@@ -10,7 +10,8 @@
         @if(!Auth::guest())
             <div class="col-4">
                 <button class="btn btn-success ribbon">
-                    <a style="color:white;" href="{{route('address.edit', ['address'=> $address->id])}}">Editar Endereço</a>
+                    <a style="color:white;" href="{{route('address.edit', ['address'=> $address->id])}}">Editar
+                        Endereço</a>
                 </button>
                 <button class="btn btn-success ribbon">
                     <a style="color:white;" href="{{route('address.index')}} ">Lista de Endereços</a>
@@ -30,14 +31,20 @@
             <p class="text-muted">({{$address->neighborhood}}) </p>
             <p class="text-muted">({{$address->city}}) </p>
             <p class="text-muted">({{$address->state}}) </p>
-            <a href="{{route('address.show', ['movie'=>$address->id])}}" class="btn btn-success">
-                Visualizar
+
+            <a href="{{route('address.edit', ['address'=>$address->id])}}" class="btn btn-success">
+                editar
             </a>
-            <a href="{{route('address.show', ['movie'=>$address->id])}}" class="btn btn-danger">
-                Deletar
-            </a>
+
+            <form action="{{ route('address.delete', ['address' =>$address->id]) }}" method="post">
+                <input type="hidden" name="_method" value="PUT"/>
+                @csrf
+                <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+            </form>
+
         </div>
-    </div>
+
+
 
     </div>
 

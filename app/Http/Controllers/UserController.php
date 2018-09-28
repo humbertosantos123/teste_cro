@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = User::with('addresses')->get();
         return view('user.index', ['users' => $users]);
     }
 
@@ -43,5 +43,12 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('user.show', ['user' => $user->id]);
+    }
+
+    public function delete(User $user)
+    {
+        $user->delete();
+
+        return $this->index();
     }
 }

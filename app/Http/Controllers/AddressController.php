@@ -9,7 +9,7 @@ class AddressController extends Controller
 {
     public function index()
     {
-        $addresses = Address::where('user_id', \Auth::user() ? \Auth::user()->id : 0)->get();
+        $addresses = Address::where('user_id', \Auth::user() ? \Auth::user()->id : 0)->orderBy('updated_at', 'DESC')->get();
         return view('address.index', ['addresses' => $addresses]);
     }
 
@@ -26,6 +26,13 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         return view('address/edit', ['address' => $address]);
+    }
+
+    public function delete(Address $address)
+    {
+        $address->delete();
+
+        return $this->index();
     }
 
     public function update(Request $request, Address $address)
@@ -55,7 +62,7 @@ class AddressController extends Controller
         return redirect()->route('address.show', ['address' => $address->id]);
     }
 
-    public function registerAddress(Request $request)
+    public function register(Request $request)
     {
         $this->validate($request, [
             'zip-code' => 'required|string|max:9',

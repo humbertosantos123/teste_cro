@@ -29,12 +29,14 @@
             <div class="card-body">
                 <p class="text-muted">({{$user->document}}) </p>
                 <p class="text-muted">({{date('d/m/Y', strtotime($user->birthday))}}) </p>
-                <a href="{{route('user.show', ['user'=>$user->id])}}" class="btn btn-success">
-                    Visualizar
+                <a href="{{route('user.edit', ['user'=>$user->id])}}" class="btn btn-success">
+                    editar
                 </a>
-                <a href="{{route('user.show', ['user'=>$user->id])}}" class="btn btn-danger">
-                    Deletar
-                </a>
+                <form action="{{ route('user.delete', ['user' =>$user->id]) }}" method="post">
+                    <input type="hidden" name="_method" value="PUT"/>
+                    @csrf
+                    <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+                </form>
             </div>
         </div>
     </div>

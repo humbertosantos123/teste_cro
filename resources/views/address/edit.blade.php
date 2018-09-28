@@ -14,24 +14,24 @@
             @endif
             <div class="form-group">
                 <label for="zip-code">CEP</label>
-                <input class="form-control" name="zip-code" type="text" id="zip-code" value="{{$address->zip_code}}" maxlength="9"
+                <input class="form-control" name="zip-code" autocomplete="off" type="text" id="zip-code" value="{{$address->zip_code}}" maxlength="9"
                        onblur="pesquisacep(this.value);" >
             </div>
             <div class="form-group">
                 <label for="address">Endereço</label>
-                <input type="text" class="form-control" name="address" id="address" value="{{$address->address}}" required>
+                <input type="text" class="form-control" autocomplete="off" name="address" id="address" value="{{$address->address}}" required>
             </div>
             <div class="form-group">
                 <label for="number">Numero</label>
-                <input type="text" class="form-control" name="number" id="number" value="{{$address->number}}" required>
+                <input type="text" class="form-control" autocomplete="off" name="number" id="number" value="{{$address->number}}" required>
             </div>
             <div class="form-group">
                 <label for="complement">Complemento</label>
-                <input type="text" class="form-control" name="complement" id="complement" value="{{$address->complement}}" required>
+                <input type="text" class="form-control" autocomplete="off" name="complement" id="complement" value="{{$address->complement}}" required>
             </div>
             <div class="form-group">
                 <label for="neighborhood">Bairro</label>
-                <input type="text" class="form-control" name="neighborhood" id="neighborhood" value="{{$address->neighborhood}}" required>
+                <input type="text" class="form-control" autocomplete="off" name="neighborhood" id="neighborhood" value="{{$address->neighborhood}}" required>
             </div>
             <div class="form-group">
                 <label for="city">Cidade</label>

@@ -24,3 +24,7 @@ mix.scripts([
     'resources/js/mask.js',
 ], 'public/js/register.js');
 
+mix.scripts([
+    'resources/js/cep.js',
+], 'public/js/address.js');
+

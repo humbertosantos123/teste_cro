@@ -24,6 +24,22 @@
                                 Visualizar
                             </a>
                         </div>
+                        @foreach($user->addresses as $index => $address)
+                            @if($index === 0)
+                                <h3>Endereço Principal</h3>
+                            @else
+                                <h3>Endereço secundário</h3>
+                            @endif
+                            <hr>
+
+                            <p>({{$address->address}} - {{$address->number}})</p>
+                            <p class="text-muted">({{$address->city}} - {{$address->state}}) </p>
+                            <a href="{{route('address.show', ['movie'=>$address->id])}}"
+                               class="btn btn-success">
+                                Visualizar
+                            </a>
+                        @endforeach
+
                     </div>
 
                 </div>

@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 $router->group( [
     'prefix'     => 'movies',
@@ -30,8 +29,8 @@ $router->group( [
         ] );
 
         $router->post( '/', [
-            'as'   => 'store',
-            'uses' => 'MovieController@store',
+            'as'   => 'register',
+            'uses' => 'MovieController@register',
         ] );
 
         $router->get( 'create', [
@@ -54,6 +53,11 @@ $router->group( [
             'uses' => 'MovieController@update',
         ] );
 
+        $router->put( '{movie}/delete', [
+            'as'   => 'delete',
+            'uses' => 'MovieController@delete',
+        ] );
+
     }
 );
 
@@ -70,8 +74,8 @@ $router->group( [
         ] );
 
         $router->post( '/', [
-            'as'   => 'store',
-            'uses' => 'DirectorController@store',
+            'as'   => 'register',
+            'uses' => 'DirectorController@register',
         ] );
 
         $router->get( 'create', [
@@ -94,6 +98,11 @@ $router->group( [
             'uses' => 'DirectorController@update',
         ] );
 
+        $router->put( '{director}/delete', [
+            'as'   => 'delete',
+            'uses' => 'DirectorController@delete',
+        ] );
+
     }
 );
 
@@ -107,6 +116,11 @@ $router->group( [
         $router->get( '/', [
             'as'   => 'index',
             'uses' => 'AddressController@index',
+        ] );
+
+        $router->get( 'create', [
+            'as'   => 'create',
+            'uses' => 'AddressController@create',
         ] );
 
         $router->post( 'register', [
@@ -127,6 +141,11 @@ $router->group( [
         $router->put( '{address}', [
             'as'   => 'update',
             'uses' => 'AddressController@update',
+        ] );
+
+        $router->put( '{address}/delete', [
+            'as'   => 'delete',
+            'uses' => 'AddressController@delete',
         ] );
 
     }
@@ -159,25 +178,13 @@ $router->group( [
             'uses' => 'UserController@update',
         ] );
 
+        $router->put( '{user}/delete', [
+            'as'   => 'delete',
+            'uses' => 'UserController@delete',
+        ] );
+
     }
 );
-//Movie Routes
-//Route::get('/movies', 'MovieController@index')->name('movies.index');
-//Route::get('/movies/create', 'MovieController@create')->name('movies.create');
-//Route::post('/movies', 'MovieController@store')->name('movies.store');
-//Route::get('/movies/{movie}/edit', 'MovieController@edit')->name('movies.edit');
-//Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
-//Route::post('/movies/{movie}', 'MovieController@update')->name('movies.update');
-//Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
-
-//Directors Routes
-//Route::get('/directors', 'DirectorController@index')->name('directors.index');
-//Route::get('/directors/create', 'DirectorController@create')->name('directors.create');
-//Route::post('/directors', 'DirectorController@store')->name('directors.store');
-//Route::get('/directors/{director}/edit', 'DirectorController@edit')->name('directors.edit');
-//Route::get('/directors/{director}', 'DirectorController@show')->name('directors.show');
-//Route::post('/directors/{director}', 'DirectorController@update')->name('directors.update');
-//Route::put('/directors/{director}', 'DirectorController@update')->name('directors.update');
 
 //logOut
 Route::get('/logout', 'LogoutController@logout')->name('logout');
