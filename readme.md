@@ -39,7 +39,7 @@ Nas funções de update e register coloquei o validate request para analisar os 
 Em todas as entidades eu criei um model e um seeder, para que o usuário posso visualizar algumas informações logo de cara.
 
 - Timestamps para criação de registros de alteração (created_at, updated_at)
-Sofdeletes para que o registro nao seja deletado da base e so marcado como deleted_at (caso queira basta utilizar o force delete no controller)
+Sofdeletes para que o registro não seja deletado da base e só marcado como deleted_at (caso queira deletar basta utilizar o force delete no controller)
 
 - Entidades com relacionamentos criei funções belongsTo e hasmany para todos os casos necessários
 
