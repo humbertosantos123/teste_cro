@@ -1,3 +1,60 @@
+##Comandos para instalação (laravel + TESTE_CRO)
+
+- renomear file env.example -> env e configure o banco de dados e servidor smtp para recuperação de senha
+
+comandos e comentários
+
+composer install -> instalação das principais dependências do laravel
+
+npm install -> utilizar o webpack.mix.js (laravel-mix) agrupar arquivos js e style (scss, less, css)
+
+bower install -> componentes extras para complementar o código (jquery, fontawesome, mask)
+
+obs: Eu sei que pelo pachage.json eu posso instalar esses componentes, coloquei para demonstração
+
+npm run dev -> para agrupar os arquivos js do webpack e colocar na pasta public   
+
+php artisan key:generate -> gerar chave valida do laravel
+
+php artisan migrate -> criar tabelas no banco de dados
+
+php artisan db:seed -> alimentar o banco com alguns registros
+
+php artisan serve -> rodar aplicação
+
+
+#Arquivos modificados
+
+- app.php -> timezone -> para gravar hora no formato brasileiro, locale para pegar a pasta de tradução de erros e validações 
+
+- Criei um controller para cada entidade e o auth foi feito pelo comando php artisan make:auth
+
+- AddressController
+Index -> fiz a consulta usando eloquent para buscar os endereços do usuário logado e por ordem de atualização do registro, para mostrar como endereço principal o registro mais atual.
+
+- Todos os controllers
+Nas funções de update e register coloquei o validate request para analisar os erros vindos dos formulários das views.
+
+- Database 
+Em todas as entidades eu criei um model e um seeder, para que o usuário posso visualizar algumas informações logo de cara.
+
+- Timestamps para criação de registros de alteração (created_at, updated_at)
+Sofdeletes para que o registro nao seja deletado da base e so marcado como deleted_at (caso queira basta utilizar o force delete no controller)
+
+- Entidades com relacionamentos criei funções belongsTo e hasmany para todos os casos necessários
+
+
+#telas 
+- Adicionei novos campos para criar um novo usuário, com mascara de cpf e data de nascimento
+- Criar filme coloquei campo adicional para link de imagem do filme e o rating utilizei o fontawesome para exibir as estrelas
+- Tela de endereços mostra o endereço do usuário, e em destaque(bg-primary) o endereço principal de acordo com seu updated_at
+- Tela de usuarios mostra todos os usuários e seus respectivos endereços.
+- Tela de cadastro do usuario o campo cep pesquisa automaticamente a cidade e estado através do js com acesso a api do correios 
+   
+   #rotas 
+   - fiz todas as rotas agrupadas e para as rotas put e post coloquei o @csrf de seguranção de requisição do laravel
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -36,8 +93,6 @@ We would like to extend our thanks to the following sponsors for helping fund on
 - **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
 - **[Cubet Techno Labs](https://cubettech.com)**
 - **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
 - [User10](https://user10.com)
@@ -48,9 +103,6 @@ We would like to extend our thanks to the following sponsors for helping fund on
 - [Runtime Converter](http://runtimeconverter.com/)
 - [WebL'Agence](https://weblagence.com/)
 - [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
 
 ## Contributing
 

@@ -2,10 +2,23 @@
 
 @section('content')
 <div class="container">
+
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Cadastrar') }}</div>
+                @if($errors->count())
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="alert alert-danger text-center">
+                                @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
